@@ -1,12 +1,19 @@
 // BackButton.js
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const BackButton = () => (
-  <div>
-    <button className="bg-gray-100 text-gray-500 h-10 w-10 rounded">
-      &lt;
-    </button>
-  </div>
-);
+const BackButton = () => {
+  const navigate = useNavigate();
+  return (
+    <div>
+      <button
+        onClick={() => navigate("/get-started/profile")}
+        className="bg-gray-100 text-gray-500 h-10 w-10 rounded"
+      >
+        &lt;
+      </button>
+    </div>
+  );
+};
 
 export default BackButton;

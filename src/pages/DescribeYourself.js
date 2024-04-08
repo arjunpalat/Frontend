@@ -26,18 +26,21 @@ const DescribeYourself = () => (
           title="I'm a designer looking to share my work"
           description="Get started and tap into a vast pool of talent and inspiration on
           Dribbble, the premier platform for designers worldwide"
+          name="designer"
         />
         <OptionCard
           image={d2}
           title="I'm looking to hire a designer"
           description="Find your perfect design match with Dribbble's global network of
           talented designers ready to bring your vision to life"
+          name="hire"
         />
         <OptionCard
           image={d3}
           title="I'm looking for a design inspiration"
           description="With over 7 million shots from a vast community of designers,
           Dribbble is the leading source for design inspiration"
+          name="inspiration"
         />
       </div>
       <p className="font-bold text-base text-center mt-10">
