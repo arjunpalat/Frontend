@@ -10,7 +10,7 @@ const AvatarSection = () => {
   const fileInputRef = useRef();
   const dispatch = useUserDispatch();
   const { userDetails } = useUserState();
-  console.log("url", userDetails.avatarUrl);
+  const buttonRef = useRef();
 
   const onFileChange = (event) => {
     const file = event.target.files[0];
@@ -21,6 +21,7 @@ const AvatarSection = () => {
           type: "SET_USER_DETAILS",
           payload: { ...userDetails, avatarUrl: reader.result },
         });
+        buttonRef.current.blur();
       };
       reader.readAsDataURL(file);
     }
@@ -39,6 +40,7 @@ const AvatarSection = () => {
           <div className="absolute top-[-103px] left-[130px] md:static">
             <button
               onClick={onButtonClick}
+              ref={buttonRef}
               className="border text-xs md:text-sm font-semibold rounded-lg border-gray-300 px-5 py-2"
             >
               Choose image

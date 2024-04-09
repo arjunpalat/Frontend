@@ -1,10 +1,8 @@
 // DescribeYourself.js
 import React from "react";
 import { d1, d2, d3 } from "../assets/index.js";
-import Logo from "../components/Describe/Logo";
-import BackButton from "../components/Describe/BackButton";
-import OptionCard from "../components/Describe/OptionCard";
-import FinishButton from "../components/Describe/FinishButton";
+import {Logo, BackButton, OptionCard, FinishButton} from "../components/Describe/index.js";
+
 
 const DescribeYourself = () => (
   <div className="py-3 px-5 md:px-10 flex flex-col">

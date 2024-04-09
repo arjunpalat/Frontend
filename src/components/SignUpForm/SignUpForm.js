@@ -8,7 +8,7 @@ import { useUserState } from "../UserContext";
 const SignUpForm = () => {
   const { error } = useUserState();
   return (
-    <div className="flex flex-col mx-auto px-4 py-4 w-full items-center">
+    <div className="flex flex-col px-4 py-4 w-full items-center">
       <p className="self-end text-base">
         Already a member? <a href="www.google.com">Sign in</a>
       </p>

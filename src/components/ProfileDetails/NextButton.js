@@ -1,5 +1,5 @@
 // NextButton.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { updateUserDetails } from "../../utils/services/api";
 import { useUserState } from "../UserContext";
@@ -22,6 +22,20 @@ const NextButton = () => {
       setIsSaving(false);
     }
   };
+
+  useEffect(() => {
+    const handleEnterKey = (event) => {
+      if (event.key === "Enter" && !buttonDisabled && !isSaving) {
+        handleNext();
+      }
+    };
+
+    document.addEventListener("keydown", handleEnterKey);
+    return () => {
+      document.removeEventListener("keydown", handleEnterKey);
+    };
+  }, [buttonDisabled, isSaving]);
+
   return (
     <div className="flex flex-col gap-2 mt-8 w-1/3">
       <button

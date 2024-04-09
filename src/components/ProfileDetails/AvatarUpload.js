@@ -7,6 +7,7 @@ const AvatarUpload = () => {
   const { userDetails } = useUserState();
   const dispatch = useUserDispatch();
   const fileInputRef = useRef();
+  const buttonRef = useRef();
 
   const onFileChange = (event) => {
     const file = event.target.files[0];

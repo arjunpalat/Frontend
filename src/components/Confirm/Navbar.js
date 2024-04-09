@@ -4,6 +4,14 @@ import { useUserState } from "../UserContext.js";
 
 const Navbar = () => {
   const { userDetails } = useUserState();
+  const navLinks = [
+    "Inspiration",
+    "Find Work",
+    "Learn Design",
+    "Go Pro",
+    "Hire Designers",
+  ];
+
   return (
     <div className="py-5 px-10 flex justify-between items-center border border-b-gray-300">
       <div className="flex gap-4 items-center">
@@ -16,11 +24,11 @@ const Navbar = () => {
         </button>
         <img src={logo} alt="dribbble" className="w-24 h-auto" />
         <div className="hidden lg:flex gap-6 ml-3 items-center">
-          <div className="text-slate-600 font-semibold">Inspiration</div>
-          <div className="text-slate-600 font-semibold">Find Work</div>
-          <div className="text-slate-600 font-semibold">Learn Design</div>
-          <div className="text-slate-600 font-semibold">Go Pro</div>
-          <div className="text-slate-600 font-semibold">Hire Designers</div>
+          {navLinks.map((link, index) => (
+            <div key={index} className="text-slate-600 font-semibold">
+              {link}
+            </div>
+          ))}
         </div>
       </div>
       <div className="flex gap-4 items-center">

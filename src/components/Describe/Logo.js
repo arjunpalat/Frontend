@@ -1,5 +1,3 @@
-// Logo.js
-import React from "react";
 import { logo_pink } from "../../assets/index.js";
 
 const Logo = () => (

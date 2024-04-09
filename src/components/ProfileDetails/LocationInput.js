@@ -8,6 +8,7 @@ const LocationInput = () => {
 
   return (
     <div className="mt-3">
+      <p className="text-xl text-black mt-6 font-bold">Add your location</p>
       <input
         type="text"
         placeholder="Enter a location"
