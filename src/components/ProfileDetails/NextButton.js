@@ -1,5 +1,5 @@
 // NextButton.js
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { updateUserDetails } from "../../utils/services/api";
 import { useUserState } from "../UserContext";
@@ -7,22 +7,29 @@ import { useUserState } from "../UserContext";
 const NextButton = () => {
   const navigate = useNavigate();
   const { userDetails } = useUserState();
+  const buttonDisabled = !userDetails.location;
+  const [isSaving, setIsSaving] = useState(false);
 
   const handleNext = async () => {
     try {
-      await updateUserDetails(userDetails);
+      setIsSaving(true);
+      const { location, avatarUrl } = userDetails;
+      await updateUserDetails({ location, avatarUrl });
       navigate("/get-started/describe-yourself");
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsSaving(false);
     }
   };
   return (
     <div className="flex flex-col gap-2 mt-8 w-1/3">
       <button
         onClick={handleNext}
-        className="text-white bg-pink-500 rounded-lg self-start w-full px-3 py-3"
+        className="text-white disabled:bg-pink-300 bg-pink-500 rounded-lg self-start w-full px-3 py-3"
+        disabled={buttonDisabled || isSaving}
       >
-        Next
+        {isSaving ? "Saving..." : "Next"}
       </button>
       <div className="text-gray-400 hidden md:block text-sm font-semibold self-center">
         or Press RETURN

@@ -19,7 +19,9 @@ const OptionCard = ({ image, title, description, name }) => {
   return (
     <div
       onClick={handleClick}
-      className="border border-gray-100 px-5 py-3 w-72 h-60 gap-1 rounded-lg flex flex-col items-center justify-end hover:cursor-pointer"
+      className={`border ${
+        checked ? "border-pink-500" : "border-gray-100"
+      } px-5 py-3 w-72 h-60 gap-1 rounded-lg flex flex-col items-center justify-end hover:cursor-pointer`}
     >
       <img src={image} className="w-52 h-52" />
       <div className="font-bold text-center text-lg">{title}</div>
@@ -30,7 +32,15 @@ const OptionCard = ({ image, title, description, name }) => {
       >
         {description}
       </p>
-      <input type="checkbox" checked={checked} name="describe1" className="h-6" />
+      <div
+        className={`h-5 w-5 rounded-full ${
+          checked ? "bg-pink-500" : ""
+        } border border-gray-200 flex justify-center items-center shrink-0`}
+      >
+        <div className={`${!checked ? "hidden" : ""} text-white text-sm `}>
+          &#10003;
+        </div>
+      </div>
     </div>
   );
 };

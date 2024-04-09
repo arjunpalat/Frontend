@@ -12,6 +12,10 @@ import d2 from "../assets/d2.png";
 import d3 from "../assets/d3.png";
 import search from "../assets/search.svg";
 import mail from "../assets/mail.png";
+import deleteIcon from "../assets/deleteIcon.svg";
+import trigger from "../assets/trigger.svg";
+import logo_pink from "../assets/logo_pink.svg";
+import exclamation from "../assets/exclamation.svg";
 
 export {
   search,
@@ -28,4 +32,8 @@ export {
   d1,
   d2,
   d3,
+  deleteIcon,
+  trigger,
+  logo_pink,
+  exclamation,
 };

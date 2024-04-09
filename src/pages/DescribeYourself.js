@@ -7,7 +7,7 @@ import OptionCard from "../components/Describe/OptionCard";
 import FinishButton from "../components/Describe/FinishButton";
 
 const DescribeYourself = () => (
-  <div className="py-10 px-5 md:px-10 flex flex-col">
+  <div className="py-3 px-5 md:px-10 flex flex-col">
     <div className="flex gap-8 items-center">
       <Logo />
       <BackButton />

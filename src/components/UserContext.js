@@ -3,6 +3,7 @@ import { createContext, useReducer, useContext } from "react";
 const initialState = {
   hasAttemptedSignUp: localStorage.getItem("dribbbleDiamond") ? true : false,
   userDetails: null,
+  error: null,
 };
 
 const reducer = (state, action) => {
@@ -16,6 +17,16 @@ const reducer = (state, action) => {
       return {
         ...state,
         userToken: action.payload,
+      };
+    case "SET_AVATAR_IMAGE":
+      return {
+        ...state,
+        avatarImage: action.payload,
+      };
+    case "SET_ERROR":
+      return {
+        ...state,
+        error: action.payload,
       };
     default:
       return state;

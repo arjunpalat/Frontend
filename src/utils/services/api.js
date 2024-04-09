@@ -4,6 +4,7 @@ const registerUrl = "http://localhost:3001/api/register";
 const updateUrl = "http://localhost:3001/api/updateuser";
 
 export const registerUser = async (data) => {
+  console.log(data);
   const response = await axios.post(registerUrl, data, {
     headers: {
       "Content-Type": "application/json",

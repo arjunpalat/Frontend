@@ -4,10 +4,12 @@ import FormButton from "./FormButton";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { registerUser } from "../../utils/services/api";
-import { useUserDispatch } from "../UserContext";
+import { useUserDispatch, useUserState } from "../UserContext";
+import { nameEmptyFormField, notAgreedTOS } from "../../utils/services/helpers";
 
 const Form = () => {
   const navigate = useNavigate();
+  const { error } = useUserState();
   const dispatch = useUserDispatch();
   const [form, setForm] = useState({
     username: "",
@@ -15,6 +17,7 @@ const Form = () => {
     password: "",
     name: "",
   });
+  const [tc, setTc] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.id]: e.target.value });
@@ -22,11 +25,39 @@ const Form = () => {
 
   const handleCreate = async () => {
     try {
-      const response = await registerUser(form);
+      const invalidField = nameEmptyFormField(form);
+      if (invalidField) {
+        dispatch({
+          type: "SET_ERROR",
+          payload: {
+            message: invalidField.message,
+            inputField: invalidField.field,
+          },
+        });
+        return;
+      }
+      const tos = notAgreedTOS(tc);
+      if (tos) {
+        dispatch({
+          type: "SET_ERROR",
+          payload: {
+            message: tos.message,
+          },
+        });
+        return;
+      }
+
+      const response = await registerUser({ ...form, agreeToTOS: tc });
       dispatch({ type: "SET_USER_DETAILS", payload: response });
       navigate("/get-started/profile");
     } catch (error) {
-      console.log(error.response.data.error);
+      dispatch({
+        type: "SET_ERROR",
+        payload: {
+          message: error.response?.data.error || error.message,
+          inputField: error.response?.data.errorField || null,
+        },
+      });
     }
   };
 
@@ -41,6 +72,7 @@ const Form = () => {
           w="w-[48%]"
           value={form.name}
           handleChange={handleChange}
+          errorField={error?.inputField}
         />
         <FormInput
           id="username"
@@ -50,6 +82,7 @@ const Form = () => {
           w="w-[48%]"
           value={form.username}
           handleChange={handleChange}
+          errorField={error?.inputField}
         />
       </div>
       <FormInput
@@ -59,6 +92,7 @@ const Form = () => {
         label="Email"
         value={form.email}
         handleChange={handleChange}
+        errorField={error?.inputField}
       />
       <FormInput
         id="password"
@@ -67,9 +101,19 @@ const Form = () => {
         label="Password"
         value={form.password}
         handleChange={handleChange}
+        errorField={error?.inputField}
       />
-      <div className="flex gap-2 items-start">
-        <div className="w-5 h-5 border border-gray-200 shrink-0"></div>
+      <div className="flex gap-2 items-start text-slate-500">
+        <div
+          className={`h-5 w-5 ${
+            tc ? "bg-pink-500" : ""
+          } border border-gray-200 flex justify-center items-center shrink-0`}
+          onClick={() => setTc(!tc)}
+        >
+          <div className={`${!tc ? "hidden" : ""} text-white text-sm `}>
+            &#10003;
+          </div>
+        </div>
         <p>
           Creating an account means you're okay with our Terms of Service,
           Privacy Policy, and our default Notification Settings.

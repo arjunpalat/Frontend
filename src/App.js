@@ -13,7 +13,7 @@ import { getUserDetails } from "./utils/services/api";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const { hasAttemptedSignUp } = useUserState();
+  const { hasAttemptedSignUp, error } = useUserState();
 
   const dispatch = useUserDispatch();
   const navigate = useNavigate();
@@ -32,6 +32,13 @@ function App() {
         }
       } catch (error) {
         console.log(error);
+        dispatch({
+          type: "SET_ERROR",
+          payload: {
+            message: error.response?.data.error || error.message,
+            inputField: error.response?.data.errorField || null,
+          },
+        });
       } finally {
         setIsLoading(false);
       }

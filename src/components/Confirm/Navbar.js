@@ -1,10 +1,11 @@
 import React from "react";
 import { logo, search } from "../../assets/index.js";
-import { i1 } from "../../assets/index.js";
+import { useUserState } from "../UserContext.js";
 
 const Navbar = () => {
+  const { userDetails } = useUserState();
   return (
-    <div className="px-10 py-5 flex justify-between items-center border border-b-gray-300">
+    <div className="py-5 px-10 flex justify-between items-center border border-b-gray-300">
       <div className="flex gap-4 items-center">
         <button className="lg:hidden">
           <div className="flex flex-col gap-1">
@@ -34,7 +35,11 @@ const Navbar = () => {
             className="lg:absolute lg:top-2 lg:left-0.5 lg:w-7 w-8 h-auto"
           />
         </div>
-        <img src={i1} alt="me" className="w-10 h-auto rounded-full" />
+        <img
+          src={userDetails.avatarUrl}
+          alt="me"
+          className="w-10 h-10 rounded-full"
+        />
         <button className="text-white py-2 px-2 rounded-lg bg-pink-500">
           Upload
         </button>
