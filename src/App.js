@@ -7,13 +7,13 @@ import {
 } from "./pages/index.js";
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import { useUserState, useUserDispatch } from "./components/UserContext";
 import { getUserDetails } from "./utils/services/api";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const { hasAttemptedSignUp, error } = useUserState();
+  const { hasAttemptedSignUp } = useUserState();
 
   const dispatch = useUserDispatch();
   const navigate = useNavigate();
@@ -57,7 +57,16 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/signup" element={<SignUp />} />
+      <Route
+        path="/signup"
+        element={
+          !hasAttemptedSignUp ? (
+            <SignUp />
+          ) : (
+            <Navigate to="/get-started/profile" />
+          )
+        }
+      />
       <Route path="/get-started/profile" element={<ProfileDetails />} />
       <Route
         path="/get-started/describe-yourself"

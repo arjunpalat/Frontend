@@ -49,7 +49,8 @@ const Form = () => {
 
       const response = await registerUser({ ...form, agreeToTOS: tc });
       dispatch({ type: "SET_USER_DETAILS", payload: response });
-      navigate("/get-started/profile");
+      dispatch({ type: "SET_HAS_ATTEMPTED_SIGNUP", payload: true });
+      navigate("/get-started/profile", { replace: true });
     } catch (error) {
       dispatch({
         type: "SET_ERROR",
@@ -115,8 +116,19 @@ const Form = () => {
           </div>
         </div>
         <p>
-          Creating an account means you're okay with our Terms of Service,
-          Privacy Policy, and our default Notification Settings.
+          Creating an account means you're okay with our{" "}
+          <a href="" className="text-indigo-700">
+            Terms of Service
+          </a>
+          ,{" "}
+          <a href="" className="text-indigo-700">
+            Privacy Policy
+          </a>
+          , and our default{" "}
+          <a href="" className="text-indigo-700">
+            Notification Settings
+          </a>
+          .
         </p>
       </div>
       <div>

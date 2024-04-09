@@ -28,6 +28,11 @@ const reducer = (state, action) => {
         ...state,
         error: action.payload,
       };
+      case "SET_HAS_ATTEMPTED_SIGNUP":
+      return {
+        ...state,
+        hasAttemptedSignUp: action.payload,
+      };
     default:
       return state;
   }

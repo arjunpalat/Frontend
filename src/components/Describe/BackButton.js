@@ -7,7 +7,7 @@ const BackButton = () => {
   return (
     <div>
       <button
-        onClick={() => navigate("/get-started/profile")}
+        onClick={() => navigate("/get-started/profile", { replace: true })}
         className="bg-gray-100 text-gray-500 h-10 w-10 rounded"
       >
         &lt;

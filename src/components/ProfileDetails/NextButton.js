@@ -15,7 +15,7 @@ const NextButton = () => {
       setIsSaving(true);
       const { location, avatarUrl } = userDetails;
       await updateUserDetails({ location, avatarUrl });
-      navigate("/get-started/describe-yourself");
+      navigate("/get-started/describe-yourself", { replace: true });
     } catch (error) {
       console.log(error);
     } finally {

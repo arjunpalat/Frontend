@@ -15,10 +15,13 @@ const MailTexts = () => {
       </Text>
       <Text center>
         Didn't receive the email? Check your Spam folder, it may have been
-        caught by a filter. If you still don't see it, you can resend the
-        confirmation email.
+        caught by a filter. If you still don't see it, you can{" "}
+        <span className="text-pink-500 font-semibold">resend the confirmation mail</span>.
       </Text>
-      <Text center>Wrong email address? Change it.</Text>
+      <Text center>
+        Wrong email address?{" "}
+        <span className="text-pink-500 font-semibold">Change it</span>.
+      </Text>
     </>
   );
 };

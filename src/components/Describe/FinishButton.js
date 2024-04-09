@@ -27,7 +27,7 @@ const FinishButton = () => {
         payload: { ...userDetails, updatedPlatformUseCase },
       });
       localStorage.removeItem("dribbbleDiamond");
-      navigate("/confirm-email");
+      navigate("/confirm-email", {replace: true});
     } catch (error) {
       console.log(error);
     }

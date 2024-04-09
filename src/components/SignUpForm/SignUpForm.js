@@ -10,7 +10,10 @@ const SignUpForm = () => {
   return (
     <div className="flex flex-col px-4 py-4 w-full items-center">
       <p className="self-end text-base">
-        Already a member? <a href="www.google.com">Sign in</a>
+        Already a member?{" "}
+        <a href="" className="text-indigo-700">
+          Sign in
+        </a>
       </p>
       <FormContainer maxWidth="max-w-[440px]">
         <FormTitle>Sign up to Dribbble</FormTitle>
