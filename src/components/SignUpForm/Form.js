@@ -78,7 +78,7 @@ const Form = () => {
         <FormInput
           id="username"
           type="text"
-          placeholder="kiran331"
+          placeholder="johndoe88"
           label="Username"
           w="w-[48%]"
           value={form.username}
@@ -89,7 +89,7 @@ const Form = () => {
       <FormInput
         id="email"
         type="email"
-        placeholder="kirankumar@email.com"
+        placeholder="johndoe@xyz.com"
         label="Email"
         value={form.email}
         handleChange={handleChange}

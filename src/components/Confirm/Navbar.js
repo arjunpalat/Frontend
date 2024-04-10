@@ -13,7 +13,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="py-5 px-10 flex justify-between items-center border border-b-gray-300">
+    <div className="py-5 px-3 md:px-10 flex justify-between items-center border border-b-gray-300">
       <div className="flex gap-4 items-center">
         <button className="lg:hidden">
           <div className="flex flex-col gap-1">
@@ -45,10 +45,10 @@ const Navbar = () => {
         </div>
         <img
           src={userDetails.avatarUrl}
-          alt="me"
-          className="w-10 h-10 rounded-full"
+          alt=""
+          className="md:w-10 md:h-10 h-6 w-6 rounded-full"
         />
-        <button className="text-white py-2 px-2 rounded-lg bg-pink-500">
+        <button className="text-white md:text-base text-sm py-2 px-2 rounded-lg bg-pink-500">
           Upload
         </button>
       </div>

@@ -1,7 +1,8 @@
 import axios from "axios";
 
-const registerUrl = "http://localhost:3001/api/register";
-const updateUrl = "http://localhost:3001/api/updateuser";
+const registerUrl = "/api/register";
+const updateUrl = "/api/updateuser";
+const getuserUrl = "/api/getuser";
 
 export const registerUser = async (data) => {
   const response = await axios.post(registerUrl, data, {
@@ -17,7 +18,7 @@ export const registerUser = async (data) => {
 };
 
 export const getUserDetails = async () => {
-  const response = await axios.get("http://localhost:3001/api/getuser", {
+  const response = await axios.get(getuserUrl, {
     headers: {
       Authorization: `Bearer ${
         JSON.parse(localStorage.getItem("dribbbleDiamond")).token

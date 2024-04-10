@@ -16,6 +16,12 @@ import deleteIcon from "../assets/deleteIcon.svg";
 import trigger from "../assets/trigger.svg";
 import logo_pink from "../assets/logo_pink.svg";
 import exclamation from "../assets/exclamation.svg";
+import twitter_icon from "../assets/twitter_icon.svg";
+import facebook_icon from "../assets/facebook_icon.svg";
+import instagram_icon from "../assets/instagram_icon.svg";
+import dribbble_icon from "../assets/dribbble_icon.svg";
+import pinterest_icon from "../assets/pinterest_icon.svg";
+import dribbble_red_icon from "../assets/dribbble_red_icon.svg";
 
 export {
   search,
@@ -36,4 +42,10 @@ export {
   trigger,
   logo_pink,
   exclamation,
+  twitter_icon,
+  facebook_icon,
+  instagram_icon,
+  dribbble_icon,
+  pinterest_icon,
+  dribbble_red_icon,
 };

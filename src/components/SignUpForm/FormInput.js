@@ -28,8 +28,8 @@ const FormInput = ({
         id={id}
         placeholder={placeholder}
         className={`border ${
-          hasError ? "text-red-400 bg-red-100" : ""
-        } border-gray-200 rounded-lg bg-slate-50 px-2 py-2 hover:outline-4 hover:outline-pink-50 hover:outline hover:bg-white focus:outline focus:outline-pink-50 focus:outline-4 focus:border-pink-300`}
+          hasError ? "text-red-400 bg-red-100" : "bg-slate-50"
+        } border-gray-200 rounded-lg px-2 py-2 hover:outline-4 hover:outline-pink-50 hover:outline hover:bg-white focus:outline focus:outline-pink-50 focus:outline-4 focus:border-pink-300`}
         value={value}
         onChange={handleChange}
       />
